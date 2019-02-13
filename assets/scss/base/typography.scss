@@ -1,0 +1,51 @@
+h2 {
+  font-size: $fs-12;
+  line-height: $lh-22;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: $fs-22;
+  line-height: $lh-26;
+}
+
+h4 {
+  font-size: $fs-38;
+  line-height: $lh-46;
+}
+
+p {
+  font-size: $fs-14;
+  line-height: $lh-22;
+}
+
+a,
+.link {
+  color: inherit;
+  font-size: $fs-14;
+  font-weight: $fw-bold;
+  outline: none;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &::after {
+    background-color: $c-blue-dianne;
+    bottom: -3px;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.2s ease-in-out;
+    width: 100%;
+  }
+
+  &:hover,
+  &:focus {
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}

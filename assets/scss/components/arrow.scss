@@ -1,0 +1,33 @@
+.arrow-wrapper {
+  height: 24px;
+  width: 24px;
+
+  .arrow {
+    height: 8px;
+    position: relative;
+    top: 8px;
+    transform: rotate(-90deg);
+    width: 24px;
+
+    &::before,
+    &::after {
+      background-color: $c-blue-dianne;
+      content: '';
+      height: 100%;
+      position: absolute;
+      top: 0;
+      width: 50%;
+    }
+
+    &::before {
+      left: 0;
+      transform: skewY(45deg);
+    }
+
+    &::after {
+      right: 0;
+      transform: skewY(-45deg);
+      width: 50%;
+    }
+  }
+}
