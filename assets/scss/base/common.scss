@@ -1,3 +1,19 @@
+@font-face {
+  font-family: $base-font-family;
+  src: url('~assets/fonts/Arsenal-Regular.ttf') format('truetype');
+  font-display: fallback;
+  font-style: normal;
+  font-weight: $fw-regular;
+}
+
+@font-face {
+  font-family: $base-font-family;
+  src: url('~assets/fonts/Arsenal-Bold.ttf') format('truetype');
+  font-display: fallback;
+  font-style: normal;
+  font-weight: $fw-bold;
+}
+
 html,
 body {
   height: 100%;
@@ -16,6 +32,12 @@ html {
 body {
   color: $c-blue-dianne;
   font-family: $base-font-family;
+  opacity: 1;
+  transition: opacity 1s;
+
+  &.hidden {
+    opacity: 0;
+  }
 }
 
 h2,

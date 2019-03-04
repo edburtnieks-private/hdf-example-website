@@ -8,27 +8,17 @@
       <nav class="primary-navigation">
         <ul>
           <li>
-            <n-link to="/">
+            <n-link to="#about-section">
               Who We Are
             </n-link>
           </li>
           <li>
-            <n-link to="/">
-              Sectors
-            </n-link>
-          </li>
-          <li>
-            <n-link to="/">
+            <n-link to="#services">
               Services
             </n-link>
           </li>
           <li>
-            <n-link to="/">
-              References
-            </n-link>
-          </li>
-          <li>
-            <n-link to="/">
+            <n-link to="#page-footer">
               Let's Talk
             </n-link>
           </li>

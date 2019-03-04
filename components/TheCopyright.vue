@@ -10,13 +10,13 @@
   background-color: $c-blue-dianne;
   color: $c-bali-hai;
   display: flex;
+  flex-wrap: wrap;
   font-size: $fs-12;
-  line-height: $lh-16;
   font-weight: $fw-bold;
   justify-content: space-between;
+  line-height: $lh-16;
   padding: 20px;
   text-transform: uppercase;
-  flex-wrap: wrap;
 
   @include tablet {
     padding: 40px 150px;

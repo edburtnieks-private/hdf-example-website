@@ -1,7 +1,11 @@
 <template>
-  <section class="careers-section">
+  <section id="careers-section" class="careers-section">
     <div class="img-wrapper">
-      <img src="~/assets/images/careers/careers.png" alt="Careers Image">
+      <img
+        v-lazy="careersImage"
+        :loading="careersImage"
+        alt="Careers Image"
+      >
     </div>
 
     <div class="careers-wrapper">
@@ -15,6 +19,16 @@
     </div>
   </section>
 </template>
+
+<script>
+import careersImage from '~/assets/images/careers/careers.png';
+
+export default {
+  data: () => ({
+    careersImage
+  })
+};
+</script>
 
 <style lang="scss">
 .careers-section {

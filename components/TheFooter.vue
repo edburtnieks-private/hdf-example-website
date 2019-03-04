@@ -1,5 +1,5 @@
 <template>
-  <footer class="page-footer">
+  <footer id="page-footer" class="page-footer">
     <div class="inner">
       <n-link class="logo" to="/">
         <img src="~/assets/images/logo.png" alt="HDF Logo">
@@ -87,12 +87,22 @@
         </div>
 
         <div class="certification-image">
-          <img src="~/assets/images/certification.png" alt="HDF Certification">
+          <img v-lazy="certificationImage" alt="HDF Certification">
         </div>
       </section>
     </div>
   </footer>
 </template>
+
+<script>
+import certificationImage from '~/assets/images/certification.png';
+
+export default {
+  data: () => ({
+    certificationImage
+  })
+};
+</script>
 
 <style lang="scss">
 .page-footer {
@@ -119,8 +129,8 @@
   .inner {
     .info {
       display: flex;
-      justify-content: space-between;
       flex-direction: column;
+      justify-content: space-between;
       margin-top: 40px;
 
       @include tablet {

@@ -1,5 +1,5 @@
 <template>
-  <section class="feed-section">
+  <section id="feed" class="feed-section">
     <svg
       class="circle-dotted"
       width="100%"
@@ -89,10 +89,7 @@
             <h2>April 27th</h2>
           </header>
 
-          <img
-            src="~assets/images/feed/instagram-post.png"
-            alt="Instagram Post"
-          >
+          <img v-lazy="instagramPostImage" alt="Instagram Post">
         </div>
       </section>
     </div>
@@ -101,11 +98,15 @@
 
 <script>
 import BlogPost from '~/components/feed-section/BlogPost';
+import instagramPostImage from '~/assets/images/feed/instagram-post.png';
 
 export default {
   components: {
     BlogPost
-  }
+  },
+  data: () => ({
+    instagramPostImage
+  })
 };
 </script>
 
@@ -129,6 +130,10 @@ export default {
         top: 15px;
       }
     }
+  }
+
+  .circle-dotted {
+    z-index: -1;
   }
 
   > .inner {

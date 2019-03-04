@@ -2,6 +2,7 @@
 const input = {
   template: `
     <input
+      ref="mobileNavigationTrigger"
       id="mobile-navigation-trigger"
       type="checkbox"
       class="mobile-navigation-trigger"

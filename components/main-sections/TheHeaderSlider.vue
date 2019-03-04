@@ -1,14 +1,14 @@
 <template>
-  <section class="header-slider">
+  <section ref="headerSlider" class="header-slider">
     <TheSidebar />
 
     <div ref="slideImages" class="slides">
       <img
-        src="~/assets/images/header-slider/slider-image-1.png"
-        srcset="~/assets/images/header-slider/375/slider-image-1.png  375w,
-                ~/assets/images/header-slider/768/slider-image-1.png  768w,
-                ~/assets/images/header-slider/1024/slider-image-1.png 1024w,
-                ~/assets/images/header-slider/slider-image-1.png      1366w"
+        src="~/assets/images/header-slider/slider-1.png"
+        srcset="~/assets/images/header-slider/375/slider-1.png  375w,
+                ~/assets/images/header-slider/768/slider-1.png  768w,
+                ~/assets/images/header-slider/1024/slider-1.png 1024w,
+                ~/assets/images/header-slider/slider-1.png      1366w"
         sizes="(max-width: 375px)   375px,
                (max-width: 768px)   768px,
                (max-width: 1024px)  1024px,
@@ -16,11 +16,11 @@
         alt="Slider Image 1"
       >
       <img
-        src="~/assets/images/header-slider/slider-image-2.png"
-        srcset="~/assets/images/header-slider/375/slider-image-2.png  375w,
-                ~/assets/images/header-slider/768/slider-image-2.png  768w,
-                ~/assets/images/header-slider/1024/slider-image-2.png 1024w,
-                ~/assets/images/header-slider/slider-image-2.png      1366w"
+        :data-src="headerSlider2"
+        :data-srcset="`${headerSlider2Mobile}  375w
+                       ${headerSlider2Tablet}  768w
+                       ${headerSlider2Desktop} 1024w
+                       ${headerSlider2}        1366w`"
         sizes="(max-width: 375px)   375px,
                (max-width: 768px)   768px,
                (max-width: 1024px)  1024px,
@@ -28,11 +28,11 @@
         alt="Slider Image 2"
       >
       <img
-        src="~/assets/images/header-slider/slider-image-3.png"
-        srcset="~/assets/images/header-slider/375/slider-image-3.png  375w,
-                ~/assets/images/header-slider/768/slider-image-3.png  768w,
-                ~/assets/images/header-slider/1024/slider-image-3.png 1024w,
-                ~/assets/images/header-slider/slider-image-3.png      1366w"
+        :data-src="headerSlider3"      
+        :data-srcset="`${headerSlider3Mobile}  375w
+                       ${headerSlider3Tablet}  768w
+                       ${headerSlider3Desktop} 1024w
+                       ${headerSlider3}        1366w`"
         sizes="(max-width: 375px)   375px,
                (max-width: 768px)   768px,
                (max-width: 1024px)  1024px,
@@ -51,6 +51,14 @@
 
 <script>
 import TheSidebar from '~/components/TheSidebar';
+import headerSlider2 from '~/assets/images/header-slider/slider-2.png';
+import headerSlider2Mobile from '~/assets/images/header-slider/375/slider-2.png';
+import headerSlider2Tablet from '~/assets/images/header-slider/768/slider-2.png';
+import headerSlider2Desktop from '~/assets/images/header-slider/1024/slider-2.png';
+import headerSlider3 from '~/assets/images/header-slider/slider-3.png';
+import headerSlider3Mobile from '~/assets/images/header-slider/375/slider-3.png';
+import headerSlider3Tablet from '~/assets/images/header-slider/768/slider-3.png';
+import headerSlider3Desktop from '~/assets/images/header-slider/1024/slider-3.png';
 
 export default {
   components: {
@@ -60,10 +68,19 @@ export default {
     active: true,
     activeImage: 0,
     slideImages: [],
-    slideInterval: 0
+    slideInterval: 0,
+    headerSlider2,
+    headerSlider2Mobile,
+    headerSlider2Tablet,
+    headerSlider2Desktop,
+    headerSlider3,
+    headerSlider3Mobile,
+    headerSlider3Tablet,
+    headerSlider3Desktop
   }),
   mounted() {
     this.slideImages = this.$refs.slideImages.querySelectorAll('img');
+    this.$refs.slideImages.querySelector('button').style.opacity = 1;
 
     this.slideImages.forEach((image, i) => {
       i === this.activeImage
@@ -77,12 +94,21 @@ export default {
   },
   methods: {
     nextSlide() {
+      this.slideImages.forEach((image, i) => {
+        if (i !== this.activeImage) {
+          image.setAttribute('src', image.getAttribute('data-src'));
+          image.setAttribute('src-set', image.getAttribute('data-srcset'));
+        }
+      });
+
       this.slideImages[this.activeImage].classList.remove('active');
       this.transitionDelay(500)
         .then(() => {
           this.slideImages[this.activeImage].style.display = 'none';
+
           if (++this.activeImage === this.slideImages.length)
             this.activeImage = 0;
+
           this.slideImages[this.activeImage].style.display = 'block';
         })
         .then(() => {
@@ -107,6 +133,7 @@ export default {
 
 <style lang="scss">
 .header-slider {
+  max-height: 768px;
   position: relative;
   right: 0;
 
@@ -141,8 +168,10 @@ export default {
       border: 2px solid $c-blue-dianne;
       bottom: 10px;
       left: 10px;
+      opacity: 0;
       padding: 5px;
       position: absolute;
+      transition: opacity 0.5s ease-in-out;
 
       @include tablet {
         bottom: 20px;

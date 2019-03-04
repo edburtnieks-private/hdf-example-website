@@ -1,12 +1,12 @@
 <template>
-  <section ref="referencesSection" class="references-section">
+  <section id="services" ref="referencesSection" class="references-section">
     <main>
       <section id="references-slider" ref="referencesSlider" class="references-slider">
         <references-slide
-          image="references/reference-1.png"
-          image-mobile="references/375/reference-1.png"
-          image-tablet="references/768/reference-1.png"
-          image-desktop="references/1024/reference-1.png"
+          :image="images.image1.default"
+          :image-mobile="images.image1.mobile"
+          :image-tablet="images.image1.tablet"
+          :image-desktop="images.image1.desktop"
           image-alt="Reference Image 1"
         >
           <template v-slot:title>
@@ -23,10 +23,10 @@
         </references-slide>
 
         <references-slide
-          image="references/reference-2.png"
-          image-mobile="references/375/reference-2.png"
-          image-tablet="references/768/reference-2.png"
-          image-desktop="references/1024/reference-2.png"
+          :image="images.image2.default"
+          :image-mobile="images.image2.mobile"
+          :image-tablet="images.image2.tablet"
+          :image-desktop="images.image2.desktop"
           image-alt="Reference Image 2"
         >
           <template v-slot:title>
@@ -62,6 +62,14 @@
 
 <script>
 import ReferencesSlide from '~/components/references-slider/ReferencesSlide';
+import reference1 from '~/assets/images/references/reference-1.png';
+import reference1Mobile from '~/assets/images/references/375/reference-1.png';
+import reference1Tablet from '~/assets/images/references/768/reference-1.png';
+import reference1Desktop from '~/assets/images/references/1024/reference-1.png';
+import reference2 from '~/assets/images/references/reference-2.png';
+import reference2Mobile from '~/assets/images/references/375/reference-2.png';
+import reference2Tablet from '~/assets/images/references/768/reference-2.png';
+import reference2Desktop from '~/assets/images/references/1024/reference-2.png';
 
 export default {
   components: {
@@ -71,7 +79,21 @@ export default {
     sliderInfo: {},
     activeSlide: 1,
     isBehindSlides: false,
-    cardBottom: 0
+    cardBottom: 0,
+    images: {
+      image1: {
+        default: reference1,
+        mobile: reference1Mobile,
+        tablet: reference1Tablet,
+        desktop: reference1Desktop
+      },
+      image2: {
+        default: reference2,
+        mobile: reference2Mobile,
+        tablet: reference2Tablet,
+        desktop: reference2Desktop
+      }
+    }
   }),
   computed: {
     slideNumber() {
@@ -135,13 +157,11 @@ export default {
       }`;
     },
     getMinReferencesSectionHeight() {
-      const referencesSection = this.$refs.referencesSection;
-      const referencesSlider = this.$refs.referencesSlider;
-      const referencesText = this.$refs.referencesText;
-
-      const sliderHeight = referencesSlider.clientHeight;
-      const sliderBottom = referencesSlider.getBoundingClientRect().bottom;
-      const textBottom = referencesText.getBoundingClientRect().bottom;
+      const sliderHeight = this.$refs.referencesSlider.clientHeight;
+      const sliderBottom = this.$refs.referencesSlider.getBoundingClientRect()
+        .bottom;
+      const textBottom = this.$refs.referencesText.getBoundingClientRect()
+        .bottom;
 
       let referencesSectionMinHeight;
 
@@ -157,7 +177,7 @@ export default {
         referencesSectionMinHeight = textBottom - sliderBottom;
       }
 
-      referencesSection.style.minHeight = `
+      this.$refs.referencesSection.style.minHeight = `
         ${sliderHeight + referencesSectionMinHeight}px
       `;
     }

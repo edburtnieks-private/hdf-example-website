@@ -7,6 +7,12 @@ module.exports = {
   ** Headers of the page
   */
   head: {
+    htmlAttrs: {
+      lang: 'en'
+    },
+    bodyAttrs: {
+      class: 'hidden'
+    },
     title: 'HDF Example Website',
     meta: [
       { charset: 'utf-8' },
@@ -19,7 +25,7 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: false,
 
   /*
   ** Global CSS
@@ -38,12 +44,28 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [],
+  plugins: [
+    '~plugins/vue-lazyload',
+    {
+      ssr: false,
+      src: '~plugins/appear'
+    }
+  ],
 
   /*
   ** Nuxt.js modules
   */
-  modules: ['@nuxtjs/style-resources', 'nuxt-webfontloader'],
+  modules: [
+    '@nuxtjs/style-resources',
+    [
+      'nuxt-imagemin',
+      {
+        optipng: {
+          optimizationLevel: 9
+        }
+      }
+    ]
+  ],
 
   /*
   ** Styles to expose to all vue components
@@ -74,12 +96,16 @@ module.exports = {
     }
   },
 
-  /*
-  ** Loading web fonts
-  */
-  webfontloader: {
-    google: {
-      families: ['Arsenal:400,700']
+  router: {
+    scrollBehavior(to) {
+      if (to.hash) {
+        return window.scrollTo({
+          top: document.querySelector(to.hash).offsetTop - 50,
+          behavior: 'smooth'
+        });
+      }
+
+      return window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 };

@@ -8,18 +8,18 @@
           </button>
         </li>
         <li>
-          <n-link to="/">
-            News &and; Press
-          </n-link>
-        </li>
-        <li>
-          <n-link to="/">
+          <n-link to="#careers-section">
             Careers
           </n-link>
         </li>
         <li>
-          <n-link to="/">
+          <n-link to="#feed">
             Blog
+          </n-link>
+        </li>
+        <li>
+          <n-link to="#feed">
+            News & Press
           </n-link>
         </li>
       </ul>
@@ -99,6 +99,13 @@
     }
 
     ul {
+      display: flex;
+      flex-direction: column-reverse;
+
+      @include desktop {
+        flex-direction: row-reverse;
+      }
+
       li {
         margin: 10px 0;
 
@@ -106,19 +113,19 @@
           margin: 0 calc(35px / 2);
         }
 
-        &:first-of-type {
+        &:last-of-type {
           margin-top: 0;
 
           @include desktop {
-            margin-right: 0;
+            margin-left: 0;
           }
         }
 
-        &:last-of-type {
+        &:first-of-type {
           margin-bottom: 30px;
 
           @include desktop {
-            margin: 0 calc(35px / 2) 0 0;
+            margin: 0 0 0 calc(35px / 2);
           }
         }
 

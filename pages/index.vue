@@ -2,30 +2,38 @@
   <main class="container">
     <TheHeaderSlider />
 
-    <TheAboutSection />
+    <LazyHydrate ssr-only>
+      <TheAboutSection />
+    </LazyHydrate>
     
-    <TheReferencesSection />
+    <LazyHydrate :when-visible="{ rootMargin: '150px' }">
+      <TheReferencesSection />
+    </LazyHydrate>
 
-    <TheFeedSection />
+    <LazyHydrate :when-visible="{ rootMargin: '500px' }">
+      <TheFeedSection />
+    </LazyHydrate>
 
-    <TheCareersSection />
+    <LazyHydrate :when-visible="{ rootMargin: '500px' }">
+      <TheCareersSection />
+    </LazyHydrate>
   </main>
 </template>
 
 <script>
+import LazyHydrate from 'vue-lazy-hydration';
 import TheHeaderSlider from '~/components/main-sections/TheHeaderSlider';
-import TheAboutSection from '~/components/main-sections/TheAboutSection';
-import TheReferencesSection from '~/components/main-sections/TheReferencesSection';
-import TheFeedSection from '~/components/main-sections/TheFeedSection';
-import TheCareersSection from '~/components/main-sections/TheCareersSection';
 
 export default {
   components: {
+    LazyHydrate,
     TheHeaderSlider,
-    TheAboutSection,
-    TheReferencesSection,
-    TheFeedSection,
-    TheCareersSection
+    TheAboutSection: () => import('~/components/main-sections/TheAboutSection'),
+    TheReferencesSection: () =>
+      import('~/components/main-sections/TheReferencesSection'),
+    TheFeedSection: () => import('~/components/main-sections/TheFeedSection'),
+    TheCareersSection: () =>
+      import('~/components/main-sections/TheCareersSection')
   }
 };
 </script>

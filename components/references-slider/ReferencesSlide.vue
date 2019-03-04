@@ -2,11 +2,10 @@
   <section class="image-wrapper">
     <img
       class="tns-lazy-img"
-      :src="image"
       :srcset="`${imageMobile}  375w,
-                ${imageTablet}  768w,
-                ${imageDesktop} 1024w,
-                ${image}        1173w`"
+                     ${imageTablet}  768w,
+                     ${imageDesktop} 1024w,
+                     ${image}        1173w`"
       sizes="(max-width: 375px)   375px,
              (max-width: 768px)   768px,
              (max-width: 1024px)  1024px,
