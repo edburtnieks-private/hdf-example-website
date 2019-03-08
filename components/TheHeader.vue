@@ -76,10 +76,17 @@ $search-button-size: 16px;
 $search-input-padding-x: 10px;
 
 .page-header {
+  background-color: $c-white;
+  position: fixed;
   padding: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
 
   @include desktop {
     align-items: center;
+    background-color: transparent;
     display: flex;
     margin: 0 auto;
     max-width: 1920px;
