@@ -53,15 +53,15 @@
 <style lang="scss">
 .page-sidebar {
   flex-direction: column;
-  padding-left: 20px;
-  position: absolute;
-  top: calc(100px - 60px);
+  padding: 30px 0 0 20px;
+  position: fixed;
   z-index: 1;
 
   @include desktop {
     align-items: center;
     left: 70px;
-    padding-left: 70px;
+    padding: 0 0 0 70px;
+    position: absolute;
     top: 100%;
     transform-origin: left top;
     transform: rotate(-90deg);

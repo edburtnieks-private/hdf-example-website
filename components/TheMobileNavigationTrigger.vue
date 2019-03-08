@@ -1,40 +1,41 @@
-<script>
-const input = {
-  template: `
+<template>
+  <div ref="mobileNavigationWrapper" class="mobile-navigation-wrapper">
     <input
-      ref="mobileNavigationTrigger"
       id="mobile-navigation-trigger"
+      ref="mobileNavigationTrigger"
       type="checkbox"
       class="mobile-navigation-trigger"
       name="mobile-navigation-trigger"
-    >`
-};
-
-const label = {
-  template: `
-    <label class="mobile-navigation-button" for="mobile-navigation-trigger">
+    >
+    <label class="mobile-navigation-button" for="mobile-navigation-trigger" @click="toggleMobileNavigation">
       <div class="bars" />
-    </label>`
-};
+    </label>
+  </div>
+</template>
 
+<script>
 export default {
-  functional: true,
-  render(createElement) {
-    return [createElement(input), createElement(label)];
+  methods: {
+    toggleMobileNavigation() {
+      this.$refs.mobileNavigationWrapper.classList.toggle('active');
+      document.body.classList.toggle('overlay');
+    }
   }
 };
 </script>
 
 
 <style lang="scss">
-.mobile-navigation-trigger {
-  display: none;
+.mobile-navigation-wrapper {
+  .mobile-navigation-trigger {
+    display: none;
+  }
 
-  + .mobile-navigation-button {
+  .mobile-navigation-button {
     background-color: transparent;
     cursor: pointer;
     padding: 20px;
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 20px;
     z-index: 2;
@@ -67,19 +68,17 @@ export default {
     }
   }
 
-  &:not(:checked) {
-    ~ .page-header .primary-navigation-container,
-    ~ .container .page-sidebar {
-      display: none;
+  ~ .page-header .primary-navigation-container,
+  ~ .container .page-sidebar {
+    display: none;
 
-      @include desktop {
-        display: flex;
-      }
+    @include desktop {
+      display: flex;
     }
   }
 
-  &:checked {
-    + .mobile-navigation-button {
+  &.active {
+    .mobile-navigation-button {
       .bars {
         height: 0;
 
