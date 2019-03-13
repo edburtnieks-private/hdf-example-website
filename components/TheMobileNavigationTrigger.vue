@@ -7,6 +7,7 @@
       class="mobile-navigation-trigger"
       name="mobile-navigation-trigger"
     >
+
     <label class="mobile-navigation-button" for="mobile-navigation-trigger" @click="toggleMobileNavigation">
       <div class="bars" />
     </label>
@@ -23,7 +24,6 @@ export default {
   }
 };
 </script>
-
 
 <style lang="scss">
 .mobile-navigation-wrapper {

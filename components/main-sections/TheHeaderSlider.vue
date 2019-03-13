@@ -64,6 +64,7 @@ export default {
   components: {
     TheSidebar
   },
+
   data: () => ({
     active: true,
     activeImage: 0,
@@ -78,22 +79,29 @@ export default {
     headerSlider3Tablet,
     headerSlider3Desktop
   }),
+
   mounted() {
     this.slideImages = this.$refs.slideImages.querySelectorAll('img');
+
+    // Making slider button fade in together with images on inital load
     this.$refs.slideImages.querySelector('button').style.opacity = 1;
 
+    // Making only active image visible on initial load
     this.slideImages.forEach((image, i) => {
       i === this.activeImage
         ? image.classList.add('active')
         : (image.style.display = 'none');
     });
 
+    // Changing image every 5 seconds
     this.slideInterval = setInterval(() => {
       this.nextSlide();
     }, 5000);
   },
+
   methods: {
     nextSlide() {
+      // Setting image for all slides that are not yet loaded
       this.slideImages.forEach((image, i) => {
         if (i !== this.activeImage) {
           image.setAttribute('src', image.getAttribute('data-src'));
@@ -101,7 +109,10 @@ export default {
         }
       });
 
+      // Fading image out
       this.slideImages[this.activeImage].classList.remove('active');
+
+      // Removing and adding image after fading it out
       this.transitionDelay(500)
         .then(() => {
           this.slideImages[this.activeImage].style.display = 'none';
@@ -112,18 +123,23 @@ export default {
           this.slideImages[this.activeImage].style.display = 'block';
         })
         .then(() => {
+          // After image is added, fading it in
           this.transitionDelay(500).then(() => {
             this.slideImages[this.activeImage].classList.add('active');
           });
         });
     },
+
     nextSlideClick() {
       clearInterval(this.slideInterval);
+
       this.slideInterval = setInterval(() => {
         this.nextSlide();
       }, 5000);
+
       this.nextSlide();
     },
+
     transitionDelay(t, v) {
       return new Promise(resolve => setTimeout(resolve.bind(null, v), t));
     }

@@ -7,15 +7,19 @@ module.exports = {
     htmlAttrs: {
       lang: 'en'
     },
+
     bodyAttrs: {
       class: 'hidden'
     },
+
     title: 'HDF Example Website',
+
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
+
     link: [
       {
         rel: 'icon',
@@ -32,22 +36,23 @@ module.exports = {
   loading: false,
 
   css: [
-    '~assets/scss/vendor/normalize.scss',
-    '~assets/scss/vendor/tiny-slider.scss',
-    '~assets/scss/base/buttons.scss',
-    '~assets/scss/base/common.scss',
-    '~assets/scss/base/inputs.scss',
-    '~assets/scss/base/typography.scss',
-    '~assets/scss/components/arrow.scss',
-    '~assets/scss/components/circles.scss'
+    '~/assets/scss/vendor/normalize.scss',
+    '~/assets/scss/vendor/tiny-slider.scss',
+    '~/assets/scss/base/buttons.scss',
+    '~/assets/scss/base/common.scss',
+    '~/assets/scss/base/inputs.scss',
+    '~/assets/scss/base/typography.scss',
+    '~/assets/scss/components/arrow.scss',
+    '~/assets/scss/components/circles.scss'
   ],
 
   plugins: [
-    '~plugins/vue-lazyload',
+    '~/plugins/vue-lazyload',
     {
       ssr: false,
-      src: '~plugins/appear'
-    }
+      src: '~/plugins/appear'
+    },
+    '~/plugins/navigation-link'
   ],
 
   modules: [
@@ -63,7 +68,7 @@ module.exports = {
   ],
 
   styleResources: {
-    scss: ['~assets/scss/variables.scss', '~assets/scss/mixins/*.scss']
+    scss: ['~/assets/scss/variables.scss', '~/assets/scss/mixins/*.scss']
   },
 
   build: {

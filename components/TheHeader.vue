@@ -7,23 +7,11 @@
     <div class="primary-navigation-container">
       <nav class="primary-navigation">
         <ul>
-          <li>
-            <n-link to="#about-section">
-              Who We Are
-            </n-link>
-          </li>
+          <NavigationLink link="#about-section" text="Who We Are" />
+          
+          <NavigationLink link="#services" text="Services" />
 
-          <li>
-            <n-link to="#services">
-              Services
-            </n-link>
-          </li>
-
-          <li>
-            <n-link to="#page-footer">
-              Let's Talk
-            </n-link>
-          </li>
+          <NavigationLink link="#page-footer" text="Let's Talk" />
         </ul>
       </nav>
 
@@ -53,15 +41,18 @@ export default {
     searchFormActive: false,
     searchInputActive: false
   }),
+
   methods: {
     focusSearchBox() {
       this.activateSearchBox();
       this.$refs.searchInput.focus();
     },
+
     activateSearchBox() {
       this.searchFormActive = true;
       this.searchInputActive = true;
     },
+
     deactivateSearchBox() {
       this.searchInputActive = false;
 

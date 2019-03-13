@@ -2,59 +2,44 @@
   <aside class="page-sidebar">
     <nav class="secondary-navigation">
       <ul>
-        <li>
-          <button class="link">
-            En
-          </button>
-        </li>
+        <NavigationLink button text="En" />
 
-        <li>
-          <n-link to="#careers-section">
-            Careers
-          </n-link>
-        </li>
+        <NavigationLink link="#careers-section" text="Careers" />
 
-        <li>
-          <n-link to="#feed">
-            Blog
-          </n-link>
-        </li>
-        
-        <li>
-          <n-link to="#feed">
-            News & Press
-          </n-link>
-        </li>
+        <NavigationLink link="#feed" text="Blog" />
+
+        <NavigationLink link="#feed" text="News & Press" />
       </ul>
     </nav>
 
     <ul class="social-icons">
-      <li>
-        <n-link to="/">
-          <img src="~/assets/images/icons/facebook.svg" alt="Facebook Button">
-        </n-link>
-      </li>
+      <NavigationLink :image="facebookIcon" alt-text="Facebook Button" />
 
-      <li>
-        <n-link to="/">
-          <img src="~/assets/images/icons/youtube.svg" alt="YouTube Button">
-        </n-link>
-      </li>
+      <NavigationLink :image="youtubeIcon" alt-text="Youtube Button" />
 
-      <li>
-        <n-link to="/">
-          <img src="~/assets/images/icons/instagram.svg" alt="Instagram Button">
-        </n-link>
-      </li>
+      <NavigationLink :image="instagramIcon" alt-text="Instagram Button" />
 
-      <li>
-        <n-link to="/">
-          <img src="~/assets/images/icons/linkedin.svg" alt="LinkedIn Button">
-        </n-link>
-      </li>
+      <NavigationLink :image="linkedinIcon" alt-text="LinkedIn Button" />
     </ul>
   </aside>
 </template>
+
+<script>
+import facebookIcon from '~/assets/images/icons/facebook.svg';
+import youtubeIcon from '~/assets/images/icons/youtube.svg';
+import instagramIcon from '~/assets/images/icons/instagram.svg';
+import linkedinIcon from '~/assets/images/icons/linkedin.svg';
+
+export default {
+  data: () => ({
+    facebookIcon,
+    youtubeIcon,
+    instagramIcon,
+    linkedinIcon
+  })
+};
+</script>
+
 
 <style lang="scss">
 .page-sidebar {

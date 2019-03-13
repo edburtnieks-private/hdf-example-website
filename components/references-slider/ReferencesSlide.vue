@@ -68,17 +68,21 @@ export default {
       required: true
     }
   },
+
   mounted() {
     this.sendCardBottomCoordinates();
   },
+
   created() {
     this.$nuxt.$on('set-card-bottom', () => {
       this.sendCardBottomCoordinates();
     });
   },
+
   beforeDestroy() {
     this.$nuxt.$off('set-card-bottom');
   },
+
   methods: {
     sendCardBottomCoordinates() {
       this.$parent.$emit(

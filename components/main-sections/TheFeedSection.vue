@@ -104,6 +104,7 @@ export default {
   components: {
     BlogPost
   },
+
   data: () => ({
     instagramPostImage
   })

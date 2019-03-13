@@ -38,57 +38,21 @@
           <div class="inner">
             <nav class="primary-navigation">
               <ul>
-                <li>
-                  <n-link to="/">
-                    Who We Are
-                  </n-link>
-                </li>
+                <NavigationLink link="#about-section" text="Who We Are" />
+          
+                <NavigationLink link="#services" text="Services" />
 
-                <li>
-                  <n-link to="/">
-                    Sectors
-                  </n-link>
-                </li>
-
-                <li>
-                  <n-link to="/">
-                    Services
-                  </n-link>
-                </li>
-
-                <li>
-                  <n-link to="/">
-                    References
-                  </n-link>
-                </li>
-
-                <li>
-                  <n-link to="/">
-                    Let's Talk
-                  </n-link>
-                </li>
+                <NavigationLink link="#page-footer" text="Let's Talk" />
               </ul>
             </nav>
 
             <nav class="secondary-navigation">
               <ul>
-                <li>
-                  <n-link to="/">
-                    News &and; Press
-                  </n-link>
-                </li>
+                <NavigationLink link="#feed" text="News & Press" />
 
-                <li>
-                  <n-link to="/">
-                    Careers
-                  </n-link>
-                </li>
+                <NavigationLink link="#careers-section" text="Careers" />
 
-                <li>
-                  <n-link to="/">
-                    Blog
-                  </n-link>
-                </li>
+                <NavigationLink link="#feed" text="Blog" />
               </ul>
             </nav>
           </div>

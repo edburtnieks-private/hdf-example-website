@@ -77,6 +77,7 @@ export default {
   components: {
     ReferencesSlide
   },
+
   data: () => ({
     sliderInfo: {},
     activeSlide: 1,
@@ -97,12 +98,15 @@ export default {
       }
     }
   }),
+
   computed: {
     slideNumber() {
       return `0${this.activeSlide}`;
     }
   },
+
   mounted() {
+    // Initilizing, setting up options and events for tiny slider
     if (typeof window !== 'undefined') {
       const { tns } = require('tiny-slider/src/tiny-slider');
 
@@ -145,11 +149,13 @@ export default {
       };
     }
   },
+
   created() {
     this.$on('get-card-bottom', cardBottom => {
       this.cardBottom = cardBottom;
     });
   },
+
   methods: {
     nextSlide() {
       this.slideCounter = `0${
@@ -158,6 +164,8 @@ export default {
           : (this.activeSlide = 1)
       }`;
     },
+
+    // Getting referece section height dynamically depending on screen size
     getMinReferencesSectionHeight() {
       const sliderHeight = this.$refs.referencesSlider.clientHeight;
       const sliderBottom = this.$refs.referencesSlider.getBoundingClientRect()
