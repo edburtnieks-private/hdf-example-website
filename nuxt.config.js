@@ -84,8 +84,13 @@ module.exports = {
   router: {
     scrollBehavior(to) {
       if (to.hash) {
+        document
+          .querySelector('.mobile-navigation-wrapper')
+          .classList.remove('active');
+        document.body.classList.remove('overlay');
+
         return window.scrollTo({
-          top: document.querySelector(to.hash).offsetTop - 50,
+          top: document.querySelector(to.hash).offsetTop - 100,
           behavior: 'smooth'
         });
       }

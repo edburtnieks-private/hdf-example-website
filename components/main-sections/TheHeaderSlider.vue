@@ -136,9 +136,11 @@ export default {
   max-height: 768px;
   position: relative;
   right: 0;
+  top: 80px;
 
   @include desktop {
     padding-left: 200px;
+    top: 0;
   }
 
   @include desktop-big-image {

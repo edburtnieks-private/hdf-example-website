@@ -22,6 +22,14 @@ body {
   &.hidden {
     opacity: 0;
   }
+
+  &.overlay {
+    overflow: hidden;
+
+    @include desktop {
+      overflow: auto;
+    }
+  }
 }
 
 h2,
