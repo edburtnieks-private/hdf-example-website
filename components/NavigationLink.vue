@@ -2,7 +2,7 @@
   <li>
     <button v-if="button" class="link" v-text="text" />
 
-    <n-link v-else :to="link">
+    <n-link v-else class="link" :to="link">
       <img v-if="image" :src="image" :alt="altText">
 
       {{ text }}

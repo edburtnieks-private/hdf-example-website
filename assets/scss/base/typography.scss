@@ -22,6 +22,7 @@ p {
 a,
 .link {
   color: inherit;
+  cursor: pointer;
   font-size: $fs-14;
   font-weight: $fw-bold;
   outline: none;
@@ -32,7 +33,7 @@ a,
   &::after {
     background-color: $c-blue-dianne;
     bottom: -3px;
-    content: "";
+    content: '';
     height: 2px;
     left: 0;
     position: absolute;
