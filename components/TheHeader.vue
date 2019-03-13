@@ -12,11 +12,13 @@
               Who We Are
             </n-link>
           </li>
+
           <li>
             <n-link to="#services">
               Services
             </n-link>
           </li>
+
           <li>
             <n-link to="#page-footer">
               Let's Talk
@@ -62,6 +64,7 @@ export default {
     },
     deactivateSearchBox() {
       this.searchInputActive = false;
+
       setTimeout(() => {
         this.searchFormActive = false;
       }, 400);

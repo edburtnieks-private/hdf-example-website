@@ -3,9 +3,6 @@ const pkg = require('./package');
 module.exports = {
   mode: 'universal',
 
-  /*
-  ** Headers of the page
-  */
   head: {
     htmlAttrs: {
       lang: 'en'
@@ -19,17 +16,21 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico'
+      },
+      {
+        rel: 'stylesheet',
+        href: '//fonts.googleapis.com/css?family=Arsenal:400,700'
+      }
+    ]
   },
 
-  /*
-  ** Customize the progress-bar color
-  */
   loading: false,
 
-  /*
-  ** Global CSS
-  */
   css: [
     '~assets/scss/vendor/normalize.scss',
     '~assets/scss/vendor/tiny-slider.scss',
@@ -41,9 +42,6 @@ module.exports = {
     '~assets/scss/components/circles.scss'
   ],
 
-  /*
-  ** Plugins to load before mounting the App
-  */
   plugins: [
     '~plugins/vue-lazyload',
     {
@@ -52,9 +50,6 @@ module.exports = {
     }
   ],
 
-  /*
-  ** Nuxt.js modules
-  */
   modules: [
     '@nuxtjs/style-resources',
     [
@@ -67,22 +62,12 @@ module.exports = {
     ]
   ],
 
-  /*
-  ** Styles to expose to all vue components
-  */
   styleResources: {
     scss: ['~assets/scss/variables.scss', '~assets/scss/mixins/*.scss']
   },
 
-  /*
-  ** Build configuration
-  */
   build: {
-    /*
-    ** You can extend webpack config here
-    */
     extend(config, ctx) {
-      // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',

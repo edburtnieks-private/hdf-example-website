@@ -7,7 +7,9 @@
 
       <section class="info">
         <address>
-          <h3><span>Institut HDF</span>, d.d.</h3>
+          <h3>
+            <span>Institut HDF</span>, d.d.
+          </h3>
 
           <p class="address">
             Janka Rakuše 1, 10000 Zagreb, Hrvatska
@@ -41,21 +43,25 @@
                     Who We Are
                   </n-link>
                 </li>
+
                 <li>
                   <n-link to="/">
                     Sectors
                   </n-link>
                 </li>
+
                 <li>
                   <n-link to="/">
                     Services
                   </n-link>
                 </li>
+
                 <li>
                   <n-link to="/">
                     References
                   </n-link>
                 </li>
+
                 <li>
                   <n-link to="/">
                     Let's Talk
@@ -71,11 +77,13 @@
                     News &and; Press
                   </n-link>
                 </li>
+
                 <li>
                   <n-link to="/">
                     Careers
                   </n-link>
                 </li>
+
                 <li>
                   <n-link to="/">
                     Blog

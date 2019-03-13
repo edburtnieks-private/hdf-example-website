@@ -1,6 +1,7 @@
 <template>
   <section class="copyright-section">
     <p>Copyright (c) 2009. Institut HDF d.d.</p>
+    
     <p>Design by EA93</p>
   </section>
 </template>

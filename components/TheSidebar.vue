@@ -7,16 +7,19 @@
             En
           </button>
         </li>
+
         <li>
           <n-link to="#careers-section">
             Careers
           </n-link>
         </li>
+
         <li>
           <n-link to="#feed">
             Blog
           </n-link>
         </li>
+        
         <li>
           <n-link to="#feed">
             News & Press
@@ -31,16 +34,19 @@
           <img src="~/assets/images/icons/facebook.svg" alt="Facebook Button">
         </n-link>
       </li>
+
       <li>
         <n-link to="/">
           <img src="~/assets/images/icons/youtube.svg" alt="YouTube Button">
         </n-link>
       </li>
+
       <li>
         <n-link to="/">
           <img src="~/assets/images/icons/instagram.svg" alt="Instagram Button">
         </n-link>
       </li>
+
       <li>
         <n-link to="/">
           <img src="~/assets/images/icons/linkedin.svg" alt="LinkedIn Button">

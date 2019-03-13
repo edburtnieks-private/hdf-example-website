@@ -53,7 +53,9 @@
             <div class="arrow" />
           </div>
         </button>
+
         <span />
+        
         <h4 class="slide-counter" v-text="slideNumber" />
       </div>
     </main>
